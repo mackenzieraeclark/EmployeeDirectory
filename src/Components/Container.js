@@ -11,7 +11,21 @@ import UserDirectory from "./UserDirectory";
 // create class
 class Container extends Component {
 
-    // here
+    state ={
+        search: "",
+        employees: [],
+        filteredEmployees: [],
+
+    };
+
+    componentDidMount() {
+        API.randomUsers().then( (res) => {
+            this.setState({
+                employees: res.data.results,
+                filteredEmployees: res.data.results
+            });
+        } ).catch(err => console.log(err));
+    }
 
 }
 
