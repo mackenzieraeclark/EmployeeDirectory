@@ -43,21 +43,6 @@ class Container extends Component {
         });
       };
 
-      // handle search bar
-      handleSearch = (event) => {
-        event.preventDefault();
-        if (!this.state.search) {
-          alert("Enter a user to search by name.");
-        }
-        const { users, search } = this.state;
-        const filteredUsers = users.filter((user) =>
-          user.name.first.toLowerCase().includes(search.toLocaleLowerCase())
-        );
-        this.setState({
-          filteredUsers,
-        });
-      };
-
       // render page! - with other compenents
       // here starts that hierarchy
       render() {
