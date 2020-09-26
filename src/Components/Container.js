@@ -11,47 +11,66 @@ import UserDirectory from "./UserDirectory";
 // create class
 class Container extends Component {
 
+    // set state
     state ={
         search: "",
-        employees: [],
-        filteredEmployees: [],
+        users: [],
+        filteredUsers: [],
 
     };
 
+    // connect API
     componentDidMount() {
         API.randomUsers().then( (res) => {
             this.setState({
-                employees: res.data.results,
-                filteredEmployees: res.data.results
+                users: res.data.results,
+                filteredUsers: res.data.results
             });
         } ).catch(err => console.log(err));
     };
 
+    // Handle users
     handleInputChange = (event) => {
-        const employees = this.state.employees;
+        const users = this.state.users;
         const UserInput = event.target.value;
-        const filteredEmployees = employees.filter(
-          (employee) =>
-            employee.name.first.toLowerCase().indexOf(UserInput.toLowerCase()) > -1
+        const filteredUsers = users.filter(
+          (user) =>
+            user.name.first.toLowerCase().indexOf(UserInput.toLowerCase()) > -1
         );
         this.setState({
-          filteredEmployees,
+          filteredUsers,
         });
       };
 
+      // handle search bar
       handleSearch = (event) => {
         event.preventDefault();
         if (!this.state.search) {
           alert("Enter a user to search by name.");
         }
-        const { employees, search } = this.state;
-        const filteredEmployees = employees.filter((employee) =>
-          employee.name.first.toLowerCase().includes(search.toLocaleLowerCase())
+        const { users, search } = this.state;
+        const filteredUsers = users.filter((user) =>
+          user.name.first.toLowerCase().includes(search.toLocaleLowerCase())
         );
         this.setState({
-          filteredEmployees,
+          filteredUsers,
         });
       };
+
+      // render page! - with other compenents
+      // here starts that hierarchy
+      render() {
+          return (
+              <div>
+                  <Header/>
+                  <SearchBar
+                  
+                  />
+                  <UserDirectory/>
+              </div>
+          )
+      }
+
 
 }
 
