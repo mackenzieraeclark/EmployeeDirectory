@@ -1,6 +1,4 @@
 // Note for author: this page is the top (look at gallery example you drove for hierarchy)
-
-import React from "react";
 import React, {Component} from "react";
 
 // import from other pages to add into main
