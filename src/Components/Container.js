@@ -6,6 +6,9 @@ import Header from "./Header";
 import SearchBar from "./SearchBar";
 import UserDirectory from "./UserDirectory";
 
+// import API from utils
+import API from "../utils/API";
+
 // create class
 class Container extends Component {
 
