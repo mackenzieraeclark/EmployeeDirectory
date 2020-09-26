@@ -61,18 +61,22 @@ class Container extends Component {
       // here starts that hierarchy
       render() {
           return (
-              <div>
+              <div className="container mx-auto">
                   <Header/>
                   <SearchBar
-                  
+                  user = {this.state.users}
+                  handleInputChange = {this.handleInputChange}
+                  handleSearch = {this.handleSearch}
                   />
-                  <UserDirectory/>
+                  <UserDirectory
+                  tableInputs = {this.state.filteredUsers}
+                  />
               </div>
-          )
-      }
+          );
+      };
 
 
-}
+};
 
 // export class
 export default Container;
