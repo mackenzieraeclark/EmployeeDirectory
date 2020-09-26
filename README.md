@@ -7,7 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Installation
 
-`npm i axios bootstrap"
+`npm i axios bootstrap'
 
 ## Available Scripts
 
