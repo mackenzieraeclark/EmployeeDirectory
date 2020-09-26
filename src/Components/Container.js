@@ -25,7 +25,19 @@ class Container extends Component {
                 filteredEmployees: res.data.results
             });
         } ).catch(err => console.log(err));
-    }
+    };
+
+    handleInputChange = (event) => {
+        const employees = this.state.employees;
+        const UserInput = event.target.value;
+        const filteredEmployees = employees.filter(
+          (employee) =>
+            employee.name.first.toLowerCase().indexOf(UserInput.toLowerCase()) > -1
+        );
+        this.setState({
+          filteredEmployees,
+        });
+      };
 
 }
 
